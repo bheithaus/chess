@@ -1,5 +1,6 @@
 # encoding: utf-8
-
+#mshopsin I really like the unicode pieces
+#How do you plan on detecting what are valid moves for each piece?
 class PrintClass
 
 	attr_accessor :white, :black

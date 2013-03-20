@@ -122,6 +122,8 @@ class Board
 			move2 = [-1, 1]
 		end
 
+    ## REV: Re-factor.
+    #
 		maybe_pawn_positions = [end_pos[0] + move1[0], end_pos[1] + move1[1]], [end_pos[0] + move2[0], end_pos[1] + move2[1]]
 		maybe_pawn_positions.keep_if {|pos| in_bounds?(pos)}
 		maybe_pawns = []
@@ -152,7 +154,7 @@ class Board
 	end
 
 	def free_path?(start_pos, end_pos, delta)
-		intermediate_pos = start_pos.dup
+		intermediate_pos = start_pos.dup ## some comments explaining intermediate positions might help.
 		end_pos = end_pos.dub
 		end_pos[0] -= delta[0]
 		end_pos[1] -= delta[1]
@@ -229,7 +231,7 @@ class Board
 	def get_display_piece(piece, printer)
 		color = piece.color
 		if color == :white
-			hash = printer.white
+
 		else
 			hash = printer.black
 		end
@@ -277,6 +279,8 @@ private
 					maybe_pawn.remove_neighbor(removed_piece)
 				end
 		end
+    ## REV: When does a piece get removed from the players set, or from play. Won't this be necessary once you get to the check/check-mate?
+
 
 		@board[i][j] = nil
 		#remove pawn neighbor
